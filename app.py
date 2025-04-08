@@ -2,7 +2,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.routel("/", methods=['GET'])
+@app.route("/", methods=['GET'])
 def home():
     return "<h1>Jesvi's Flas App</h1>"
 
