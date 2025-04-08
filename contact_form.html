@@ -1,63 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Form</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <h1>Contact Us</h1>
-    <form method="POST">
-        {% if error %}
-            <div class="error">{{ error }}</div>
-        {% endif %}
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <label for="subject">Subject:</label>
-        <select id="subject" name="subject" required>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Support Request">Support Request</option>
-            <option value="Other">Other</option>
-        </select>
-        <div id="other_subject_container" style="display: none;">
-            <label for="other_subject">Please specify:</label>
-            <input type="text" id="other_subject" name="other_subject">
-        </div>
-
-        <label>Preferred Contact Method:</label>
-        <label for="email_contact">Email</label>
-        <input type="checkbox" id="email_contact" name="preferred_contact" value="Email">
-        <label for="phone_contact">Phone</label>
-        <input type="checkbox" id="phone_contact" name="preferred_contact" value="Phone">
-        <label for="both_contact">Both</label>
-        <input type="checkbox" id="both_contact" name="preferred_contact" value="Both">
-
-        <label for="agreement">
-            <input type="checkbox" id="agreement" name="agreement"> I agree to the terms and conditions.
-        </label>
-
-        <button type="submit">Submit</button>
-    </form>
-
-    <script>
-        document.getElementById('subject').addEventListener('change', function() {
-            if (this.value === 'Other') {
-                document.getElementById('other_subject_container').style.display = 'block';
-            } else {
-                document.getElementById('other_subject_container').style.display = 'none';
-            }
-        });
-    </script>
-</body>
+<html>
+   <body>
+      <form action = "http://localhost:5000/result" method = "POST">
+         <p>Name <input type = "text" name = "Name" /></p>
+         <p>Physics <input type = "text" name = "Physics" /></p>
+         <p>Chemistry <input type = "text" name = "chemistry" /></p>
+         <p>Maths <input type ="text" name = "Mathematics" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   </body>
 </html>
